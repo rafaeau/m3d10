@@ -342,21 +342,23 @@
 
   const fetchFilms = async () => {
     try {
-      const response = await fetch("https://striveschool-api.herokuapp.com/api/movies/{category}",
-        { headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRiMjFmMTRiYjUzZDAwMTViMTllZDciLCJpYXQiOjE2MzIzMTM4NDEsImV4cCI6MTYzMzUyMzQ0MX0.xZNhhuravgiwteeifmymePEMIjTeiTX4yj8sM8TWgkY",
-          }
+      const response = await fetch("https://striveschool-api.herokuapp.com/api/movies/", {
+        headers: {
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRiMjFmMTRiYjUzZDAwMTViMTllZDciLCJpYXQiOjE2MzI1NzgwMzksImV4cCI6MTYzMzc4NzYzOX0.FVUjOVtcPbJHBolL3ibmT6HylACOku3Z1Xu98ilQ_WY"
         }
-      ); 
+      }
+      );
       if (response.ok) {
-      const categories = await response.json()};
-      console.log(categories)
+        const genres = await response.json();
+        console.log(genres)
+      }
     } catch (error) {
       console.log(error)
     }
   }
-
+  window.onload = async () => {
+    await fetchFilms();
+  }
 
 </script>
 
